@@ -69,12 +69,12 @@ kubectl apply -f doc/demo/hello-deployment.yaml
 # Get the service URL to access the app
 minikube service hello-service --url
 http://127.0.0.1:34185
-
+```
 ![alt text](image-1.png)
 
+```bash
 # Enable metrics-server addon for monitoring
 minikube addons enable metrics-server
-![alt text](image.png)
 # Wait ~30 seconds for the addon to be ready
 kubectl top nodes
 kubectl top pods
@@ -133,8 +133,10 @@ kubectl apply -f doc/demo/hello-deployment.yaml
 # Port-forward service to access the app
 kubectl port-forward service/hello-service 8080:80
 http://localhost:8080/
+```
 ![alt text](image-3.png)
 
+```bash
 # Enable metrics-server (using deployment from GitHub)
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 
@@ -194,9 +196,10 @@ k3d cluster create asciiartify-demo --servers 1 --agents 2 --port "8080:80@loadb
 
 # Deploy the Hello World application
 kubectl apply -f doc/demo/k3d.yaml
-
+```
 ![alt text](image-5.png)
 
+```bash
 # Wait ~30 seconds, then check node metrics
 kubectl top nodes
 # Check pod metrics
