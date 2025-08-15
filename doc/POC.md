@@ -28,6 +28,7 @@ This document describes the steps performed to deploy **ArgoCD** on a Kubernetes
 ```
 ![alt text](image-8.png)
 
+```bash
 # 5. Port-forward the ArgoCD API server to access it locally
     kubectl port-forward svc/argocd-server -n argocd 8080:443
 
