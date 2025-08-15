@@ -20,17 +20,18 @@ This document describes the steps performed to deploy **ArgoCD** on a Kubernetes
 
 # 3. Check if ArgoCD resources are created
     kubectl get all -n argocd
+```
 ![alt text](image-7.png)
-
+```bash
 # 4. Watch ArgoCD pods until they are ready
     kubectl get po -n argocd -w
+```
 ![alt text](image-8.png)
 
 # 5. Port-forward the ArgoCD API server to access it locally
     kubectl port-forward svc/argocd-server -n argocd 8080:443
 
-# I can now access the ArgoCD web interface at: 
-https://127.0.0.1:8080
+I can now access the ArgoCD web interface at: https://127.0.0.1:8080
 
 # 6. Retrieve the initial admin password
     kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
